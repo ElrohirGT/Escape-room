@@ -1651,7 +1651,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2119775930974504096, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.48
+      value: -5.52
       objectReference: {fileID: 0}
     - target: {fileID: 2119775930974504096, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1659,7 +1659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2119775930974504096, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.42
+      value: -1.36
       objectReference: {fileID: 0}
     - target: {fileID: 2119775930974504096, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1695,7 +1695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3203261902030644824, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4243493
+      value: -4.4843493
       objectReference: {fileID: 0}
     - target: {fileID: 4807976689976324956, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_TagString
@@ -1707,7 +1707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5542111180780342647, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.4243493
+      value: -4.4843493
       objectReference: {fileID: 0}
     - target: {fileID: 6001220780674294383, guid: 212907312655a4443a025a304442c17c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9759,7 +9759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371101f45ac082848a9eaac0c3a2de59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CageManager
-  state: 2
+  state: 1
 --- !u!65 &1822504686
 BoxCollider:
   m_ObjectHideFlags: 0

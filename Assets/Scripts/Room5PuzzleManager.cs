@@ -16,23 +16,22 @@ public class Room5PuzzleManager : MonoBehaviour
 
     [SerializeField] private PuzzleState state;
 
+    private PushableBox _pushable;
+
     public void Respawn()
     {
         Debug.Log("Respawning object...");
-        if (state == PuzzleState.Unsolved)
-        {
-            target.position = respawnPoint.position;
-        }
-    }
-
-    public void Solve()
-    {
-        state = PuzzleState.Solved;
+        if (state != PuzzleState.Unsolved) return;
+        
+        _pushable.enabled = false;
+        target.position = respawnPoint.position;
+        _pushable.enabled = true;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+         _pushable = target.GetComponent<PushableBox>();
         Utils.CrashIfNull(respawnPoint, "Respawn point is null!");
         Utils.CrashIfNull(target, "Respawn target is null!");
     }
