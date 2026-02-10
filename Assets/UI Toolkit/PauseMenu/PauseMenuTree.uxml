@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenu/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=93ea96af0218fe948ad4688e700826de&amp;type=3#MainMenuStyle"/>
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:VisualElement style="flex-grow: 1; padding-top: 5%; padding-right: 5%; padding-bottom: 5%; padding-left: 5%; position: absolute; background-color: rgba(0, 0, 0, 0.39);">
+            <ui:Label text="Pause" class="header"/>
+            <ui:Button text="Weitermachen" name="btnContinue" class="btn"/>
+            <ui:Button text="Hinausgehen" name="btnQuit" class="btn"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -17,6 +17,9 @@ public class Spike : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(_playerHandle))
+        {
+            AudioManager.Instance.PlayEffect(AudioManager.Sound.Death);
             playerRespawnManager.Respawn();
+        }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-    [SerializeField] private CoinManager manager;
+    [SerializeField] private ScoreManager manager;
     [SerializeField] private float rotationSpeed = 3;
     private TagHandle _playerHandle;
     
@@ -26,6 +26,7 @@ public class Coin : MonoBehaviour
         if (!other.gameObject.CompareTag(_playerHandle)) return;
         
         Debug.Log("Picking up coin...");
+        AudioManager.Instance.PlayEffect(AudioManager.Sound.PickUpCoin);
         manager.OnPickedUpCoin();
         Destroy(gameObject);
     }

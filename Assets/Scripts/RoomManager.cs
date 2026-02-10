@@ -1,14 +1,17 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-[RequireComponent(typeof(CoinManager))]
+[RequireComponent(typeof(ScoreManager))]
 public class RoomManager : MonoBehaviour
 {
     [SerializeField] private DoorManager doorToOpen;
-    [SerializeField] private CoinManager coinManager;
+    [FormerlySerializedAs("coinManager")] [SerializeField] private ScoreManager scoreManager;
     [FormerlySerializedAs("objectRespawnManager")] [SerializeField] private Room5PuzzleManager room5PuzzleManager;
     [FormerlySerializedAs("respawnManager")] [SerializeField] private PlayerRespawnManager playerRespawnManager;
+
+    [SerializeField] bool shouldEnd;
 
     private int _coinsToPickUp ;
     
@@ -18,12 +21,12 @@ public class RoomManager : MonoBehaviour
         _coinsToPickUp = gameObject.GetComponentsInChildren<Coin>().Length;
         Debug.Log($"Will need: {_coinsToPickUp} coins to exit {gameObject.name}!");
 
-        coinManager ??= gameObject.GetComponent<CoinManager>();
+        scoreManager ??= gameObject.GetComponent<ScoreManager>();
         doorToOpen ??= gameObject.GetComponentInChildren<DoorManager>();
         playerRespawnManager ??= gameObject.GetComponent<PlayerRespawnManager>();
         room5PuzzleManager ??= gameObject.GetComponent<Room5PuzzleManager>();
         
-        Utils.CrashIfNull(coinManager, "Coin manager can't be null!");
+        Utils.CrashIfNull(scoreManager, "Coin manager can't be null!");
         Utils.CrashIfNull(doorToOpen, "Door to open can't be null!");
 
         if (room5PuzzleManager is not null)
@@ -38,10 +41,16 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (coinManager.Score >= _coinsToPickUp && doorToOpen.IsClosed)
+        if (scoreManager.Score >= _coinsToPickUp && doorToOpen.IsClosed)
         {
             Debug.Log($"Opening door for {gameObject.name}");
             doorToOpen.Open();
+            
+            if (shouldEnd)
+            {
+                SceneManager.LoadScene("EndMenu");
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 }
