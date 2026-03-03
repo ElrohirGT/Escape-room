@@ -22,6 +22,9 @@ public class MainMenuController : MonoBehaviour
         var btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnPlay");
         btn.RegisterCallback<ClickEvent>(evt => _gameSceneLoadOp.allowSceneActivation = true);
 
+        btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnDemo");
+        btn.RegisterCallback<ClickEvent>(evt => SceneManager.LoadScene("Navigation"));
+
         btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnQuit");
         btn.RegisterCallback<ClickEvent>(BtnQuitClicked);
     }

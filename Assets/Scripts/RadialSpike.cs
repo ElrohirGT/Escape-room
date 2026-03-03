@@ -17,6 +17,11 @@ public class RadialSpike : MonoBehaviour
         Utils.CrashIfNull(spike, "Spike can't be null!");
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(center.transform.position, radius);
+    }
+
     private void Update()
     {
          center.Rotate(Vector3.up, rotationSpeed*Time.deltaTime, Space.World);

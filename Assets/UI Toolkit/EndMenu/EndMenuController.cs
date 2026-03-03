@@ -4,10 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Assertions;
+using Cursor = UnityEngine.Cursor;
 
 public class EndMenuController : MonoBehaviour
 {
     [SerializeField] private UIDocument ui;
+    [SerializeField] private string sceneToPlay = "Rooms";
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private bool startHidden;
 
     private AsyncOperation _gameSceneLoadOp;
 
@@ -15,9 +19,17 @@ public class EndMenuController : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadRoomsAsync());
-
+        
         ui ??= GetComponent<UIDocument>();
         Assert.IsNotNull(ui, nameof(ui) + " is null!");
+        
+        audioSource ??= GetComponent<AudioSource>();
+        Assert.IsNotNull(audioSource, "audioSource != null");
+        
+        if (startHidden)
+        {
+            Hide();
+        }
 
         var btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnPlay");
         btn.RegisterCallback<ClickEvent>(evt => _gameSceneLoadOp.allowSceneActivation = true);
@@ -37,7 +49,7 @@ public class EndMenuController : MonoBehaviour
 
     IEnumerator LoadRoomsAsync()
     {
-        _gameSceneLoadOp = SceneManager.LoadSceneAsync("Rooms");
+        _gameSceneLoadOp = SceneManager.LoadSceneAsync(sceneToPlay);
         Assert.IsNotNull(_gameSceneLoadOp, nameof(_gameSceneLoadOp) + " is null!");
         _gameSceneLoadOp.allowSceneActivation = false;
 
@@ -47,5 +59,17 @@ public class EndMenuController : MonoBehaviour
         }
 
         Debug.Log("Game Scene loaded!");
+    }
+    public void Hide()
+    {
+        ui.rootVisualElement.style.display = DisplayStyle.None;
+        audioSource.Stop();
+    }
+
+    public void Show()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        ui.rootVisualElement.style.display = DisplayStyle.Flex;
+        audioSource.Play();
     }
 }

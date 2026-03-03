@@ -5,7 +5,7 @@
             <ui:Label text="La Precuela" name="header" class="header"/>
             <ui:Label text="Escape Room&#10;" name="subtitle" class="subtitle" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/Oswald-Bold.ttf?fileID=12800000&amp;guid=c9f6d0e7bc8541498c9a4799ba184ede&amp;type=3#Oswald-Bold&quot;); color: rgb(255, 236, 48);"/>
             <ui:Button text="Play&#10;" name="btnPlay" class="btn"/>
-            <ui:Button text="Settings&#10;" name="btnSettings" class="btn"/>
+            <ui:Button text="Nav and Anim Demo&#10;" name="btnDemo" class="btn"/>
             <ui:Button text="Quit&#10;" name="btnQuit" class="btn"/>
         </ui:VisualElement>
     </ui:VisualElement>

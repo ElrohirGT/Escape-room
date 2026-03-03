@@ -23,4 +23,9 @@ public class Player : MonoBehaviour
         _transform.SetPositionAndRotation(to.position, to.rotation);
         _controller.enabled = true;
     }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
+    }
 }
