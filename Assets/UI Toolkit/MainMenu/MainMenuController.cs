@@ -27,6 +27,9 @@ public class MainMenuController : MonoBehaviour
 
         btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnQuit");
         btn.RegisterCallback<ClickEvent>(BtnQuitClicked);
+        
+        btn = ui.rootVisualElement.Q<UnityEngine.UIElements.Button>("btnInventory");
+        btn.RegisterCallback<ClickEvent>(evt => SceneManager.LoadScene("Inventory"));
     }
 
     private void BtnQuitClicked(ClickEvent evt)

@@ -1,0 +1,14 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="ElmTemplate" data-source="" class="invItem" style="display: flex;">
+        <ui:Image scale-mode="ScaleToFit" style="width: 100px; height: 100px;">
+            <Bindings>
+                <ui:DataBinding property="source" data-source-path="image" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:Image>
+        <ui:Label text="Label" data-source-path="">
+            <Bindings>
+                <ui:DataBinding property="text" data-source-path="name" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:Label>
+    </ui:VisualElement>
+</ui:UXML>

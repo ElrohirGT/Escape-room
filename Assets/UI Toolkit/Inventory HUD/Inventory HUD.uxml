@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="ElmTemplate" src="project://database/Assets/UI%20Toolkit/Inventory%20HUD/ElmTemplate.uxml?fileID=9197481963319205126&amp;guid=4ca04ef6c3fcd1d4f8ead05b4b5be737&amp;type=3#ElmTemplate"/>
+    <Style src="project://database/Assets/UI%20Toolkit/Inventory%20HUD/Inventory%20HUD.uss?fileID=7433441132597879392&amp;guid=61e6c2c6ca93bc347a48a2623c871d27&amp;type=3#Inventory HUD"/>
+    <ui:VisualElement name="Container" style="flex-grow: 1; -unity-text-align: upper-left; justify-content: space-between;">
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:ProgressBar value="100" title="Life" picking-mode="Ignore" style="flex-basis: initial; flex-shrink: initial; width: 30%; font-size: 20px; transition-duration: 0.2s; transition-timing-function: ease-in-sine; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; -unity-font-style: bold;"/>
+            <ui:Label text="Score: 0&#10;" name="Score" style="color: rgb(255, 248, 0); -unity-font-style: bold; font-size: 20px;"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ItemsContainer" style="flex-grow: 0; flex-direction: row; align-self: auto; justify-content: center; align-items: auto; flex-shrink: 1; flex-wrap: nowrap; align-content: auto;">
+            <ui:Instance template="ElmTemplate" name="ElmTemplate" data-source="project://database/Assets/ScriptableObjs/NightCubeObj.asset?fileID=11400000&amp;guid=5044b0c704f711e478f71b9eaf39bc6a&amp;type=2#NightCubeObj" style="display: none;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
